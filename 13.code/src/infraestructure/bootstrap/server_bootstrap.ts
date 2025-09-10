@@ -18,7 +18,7 @@ export default class ServerBootstrap {
       server.listen(PORT)
         .on('listening', () => {
           console.log(`El servidor empezo en el puerto ${PORT} link: http://localhost:${PORT}`);
-          console.log(`📚 Swagger docs disponible en: http://localhost:${PORT}/api/docs`);
+          console.log(`Swagger docs disponible en: http://localhost:${PORT}/api/docs`);
           resolve(true);
         })
         .on('error', (err) => {
