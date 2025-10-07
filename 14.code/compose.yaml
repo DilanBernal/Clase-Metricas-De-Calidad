@@ -1,0 +1,28 @@
+services:
+  mysql-server-ue:
+    image: mysql:8
+    container_name: mysql-server
+    ports:
+      - "4100:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: patterns_class
+      MYSQL_USER: patters_user
+      MYSQL_PASSWORD: 123456
+    networks:
+      - patterns_net
+ 
+  client-mysql-server-ue:
+    image: phpmyadmin
+    container_name: client-mysql-server
+    ports:
+      - "4101:80"
+    environment:
+      PMA_ARBITRARY: 1
+    networks:
+      - patterns_net
+ 
+networks:
+  patterns_net:
+    driver: bridge
+    name: patterns_net
